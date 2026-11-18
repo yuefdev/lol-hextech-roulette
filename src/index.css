@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --hex-bg: #050608;
+    --hex-panel: #0b0e14;
+    --hex-gold: #c8aa6e;
+    --hex-gold-bright: #f4efe6;
+    --hex-gold-dark: #7a5e2e;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #050608;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-lol-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-lol-tech {
+  font-family: "Chakra Petch", "Plus Jakarta Sans", sans-serif;
+}
+
+/* Hextech chamfered octagonal clips */
+.hex-chamfer {
+  clip-path: polygon(
+    12px 0%,
+    calc(100% - 12px) 0%,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    12px 100%,
+    0% calc(100% - 12px),
+    0% 12px
+  );
+}
+
+.hex-chamfer-sm {
+  clip-path: polygon(
+    8px 0%,
+    calc(100% - 8px) 0%,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0% calc(100% - 8px),
+    0% 8px
+  );
+}
+
+/* 3D Perspective Containers */
+.stage-3d {
+  perspective: 1250px;
+  perspective-origin: 50% 50%;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Crisp static editorial gold text (no cheap moving light sweep) */
+.gold-editorial-text {
+  background: linear-gradient(180deg, #f6f0e4 0%, #dcc18b 62%, #a58449 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle filmic grain for dark edit aesthetic */
+.edit-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 6, 8, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 170, 110, 0.45);
+  border-radius: 3px;
+}
